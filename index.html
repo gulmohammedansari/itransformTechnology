@@ -421,11 +421,21 @@
   }
   @media (max-width:768px){ .work-grid{grid-template-columns:1fr;} }
   .work-card{
+    display:block;
     border:1px solid var(--line);
     border-radius:10px;
     overflow:hidden;
     background:var(--bg-elevated);
     transition:transform .4s var(--ease), border-color .4s var(--ease);
+  }
+  .work-body .view-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:12px;
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--blue);
   }
   .work-card:hover{transform:translateY(-6px); border-color:var(--blue-dim);}
   .work-thumb{
@@ -444,7 +454,43 @@
   .work-body h3{font-family:var(--font-display); font-size:19px; font-weight:600; margin:8px 0 6px;}
   .work-body p{color:var(--muted); font-size:14px;}
 
-  /* ---------- stats ---------- */
+  /* ---------- case studies ---------- */
+  .case-list{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .case-card{
+    background:var(--bg);
+    padding:44px;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr auto;
+    gap:32px;
+    align-items:start;
+  }
+  @media (max-width:960px){ .case-card{grid-template-columns:1fr; padding:32px 24px;} }
+
+  .case-meta{display:flex; flex-direction:column; gap:14px;}
+  .case-meta .cat{font-family:var(--font-mono); font-size:11px; color:var(--muted-dim); text-transform:uppercase; letter-spacing:.08em;}
+  .case-meta h3{font-family:var(--font-display); font-size:23px; font-weight:600;}
+  .case-meta .client{color:var(--muted); font-size:13.5px;}
+
+  .case-col h4{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--blue);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin-bottom:8px;
+  }
+  .case-col p{color:var(--muted); font-size:14px; line-height:1.55;}
+
+  .case-result{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    gap:4px;
+    min-width:110px;
+  }
+  .case-result .num{font-family:var(--font-display); font-size:34px; font-weight:700; color:var(--coral);}
+  .case-result .lbl{font-family:var(--font-mono); font-size:11px; color:var(--muted-dim); text-transform:uppercase; letter-spacing:.06em;}
   .stats-strip{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -515,6 +561,8 @@
 
   :focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
 
+  .hidden{display:none !important;}
+
   /* ---------- whatsapp floating button ---------- */
   .whatsapp-fab{
     position:fixed;
@@ -559,6 +607,7 @@
       <a href="#services">Services</a>
       <a href="#process">Process</a>
       <a href="#work">Work</a>
+      <a href="#case-studies" class="hidden">Case Studies</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="btn btn-primary">Start a project</a>
@@ -578,9 +627,9 @@
       <a href="#work" class="btn btn-ghost">See our work</a>
     </div>
     <div class="hero-meta">
-      <div><div class="num">120+</div><div class="lbl">SITES SHIPPED</div></div>
-      <div><div class="num">2.4x</div><div class="lbl">AVG. LEAD LIFT</div></div>
-      <div><div class="num">3wk</div><div class="lbl">TYPICAL BUILD</div></div>
+      <div class="hidden"><div class="num">120+</div><div class="lbl">SITES SHIPPED</div></div>
+      <div class="hidden"><div class="num">2.4x</div><div class="lbl">AVG. LEAD LIFT</div></div>
+      <div class="hidden"><div class="num">3wk</div><div class="lbl">TYPICAL BUILD</div></div>
     </div>
   </div>
 
@@ -695,7 +744,7 @@
   </div>
 </section>
 
-<section id="work">
+<section id="work" class="hidden">
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -706,7 +755,7 @@
     </div>
 
     <div class="work-grid">
-      <div class="work-card reveal">
+      <a href="https://example.com" target="_blank" rel="noopener" class="work-card reveal">
         <div class="work-thumb">
           <svg viewBox="0 0 200 120"><rect x="10" y="10" width="180" height="100" rx="4" fill="none" stroke="#5B8DEF" stroke-width="1"/><rect x="20" y="20" width="80" height="8" fill="#5B8DEF"/><rect x="20" y="34" width="160" height="4" fill="#3A5A9C"/><rect x="20" y="50" width="60" height="50" fill="#FF8A5B" opacity=".5"/><rect x="90" y="50" width="60" height="50" fill="none" stroke="#5B8DEF"/><rect x="160" y="50" width="20" height="50" fill="none" stroke="#5B8DEF"/></svg>
         </div>
@@ -714,9 +763,10 @@
           <div class="cat">Real estate — brokerage</div>
           <h3>Harlow Realty Group</h3>
           <p>Full IDX site relaunch with map-based search — 61% increase in showing requests.</p>
+          <span class="view-link">View live site →</span>
         </div>
-      </div>
-      <div class="work-card reveal">
+      </a>
+      <a href="https://example.com" target="_blank" rel="noopener" class="work-card reveal">
         <div class="work-thumb">
           <svg viewBox="0 0 200 120"><rect x="10" y="10" width="180" height="100" rx="4" fill="none" stroke="#FF8A5B" stroke-width="1"/><circle cx="50" cy="40" r="14" fill="#FF8A5B" opacity=".5"/><rect x="80" y="30" width="100" height="6" fill="#5B8DEF"/><rect x="80" y="42" width="70" height="4" fill="#3A5A9C"/><rect x="20" y="70" width="160" height="30" fill="none" stroke="#5B8DEF"/></svg>
         </div>
@@ -724,9 +774,10 @@
           <div class="cat">B2C — DTC retail</div>
           <h3>Fielder Home Goods</h3>
           <p>Headless storefront rebuild, cutting checkout time to under 40 seconds.</p>
+          <span class="view-link">View live site →</span>
         </div>
-      </div>
-      <div class="work-card reveal">
+      </a>
+      <a href="https://example.com" target="_blank" rel="noopener" class="work-card reveal">
         <div class="work-thumb">
           <svg viewBox="0 0 200 120"><rect x="10" y="10" width="180" height="100" rx="4" fill="none" stroke="#5B8DEF" stroke-width="1"/><rect x="20" y="20" width="160" height="20" fill="#5B8DEF" opacity=".4"/><rect x="20" y="48" width="50" height="50" fill="none" stroke="#FF8A5B"/><rect x="75" y="48" width="50" height="50" fill="none" stroke="#FF8A5B"/><rect x="130" y="48" width="50" height="50" fill="none" stroke="#FF8A5B"/></svg>
         </div>
@@ -734,9 +785,10 @@
           <div class="cat">Real estate — new development</div>
           <h3>The Aldergate Residences</h3>
           <p>Pre-launch site with reservation deposits — sold out phase one in 11 weeks.</p>
+          <span class="view-link">View live site →</span>
         </div>
-      </div>
-      <div class="work-card reveal">
+      </a>
+      <a href="https://example.com" target="_blank" rel="noopener" class="work-card reveal">
         <div class="work-thumb">
           <svg viewBox="0 0 200 120"><rect x="10" y="10" width="180" height="100" rx="4" fill="none" stroke="#FF8A5B" stroke-width="1"/><rect x="20" y="20" width="90" height="80" fill="none" stroke="#5B8DEF"/><rect x="120" y="20" width="60" height="35" fill="#5B8DEF" opacity=".4"/><rect x="120" y="62" width="60" height="38" fill="none" stroke="#5B8DEF"/></svg>
         </div>
@@ -744,13 +796,88 @@
           <div class="cat">B2C — subscription service</div>
           <h3>Northwind Meal Co.</h3>
           <p>Subscription flow and account portal redesign, lifting trial-to-paid conversion 34%.</p>
+          <span class="view-link">View live site →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="case-studies" class="hidden">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-eyebrow">Case studies</span>
+        <h2 class="reveal">Challenge, approach, result — for three recent builds.</h2>
+      </div>
+      <p class="reveal">Full write-ups with screenshots shared on request.</p>
+    </div>
+
+    <div class="case-list">
+      <div class="case-card reveal">
+        <div class="case-meta">
+          <span class="cat">Real estate — brokerage</span>
+          <h3>Harlow Realty Group</h3>
+          <span class="client">45-agent brokerage, Pune metro</span>
+        </div>
+        <div class="case-col">
+          <h4>Challenge</h4>
+          <p>Old site had no map search, listings synced once a day, and 80% of traffic dropped off before viewing a single property.</p>
+        </div>
+        <div class="case-col">
+          <h4>Approach</h4>
+          <p>Rebuilt on live IDX feed, added map-based search and saved alerts, cut homepage-to-listing path to two clicks.</p>
+        </div>
+        <div class="case-result">
+          <div class="num">+61%</div>
+          <div class="lbl">Showing requests</div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-meta">
+          <span class="cat">B2C — DTC retail</span>
+          <h3>Fielder Home Goods</h3>
+          <span class="client">Direct-to-consumer furniture brand</span>
+        </div>
+        <div class="case-col">
+          <h4>Challenge</h4>
+          <p>Legacy storefront took 6+ steps to checkout, cart abandonment sat above 78% on mobile.</p>
+        </div>
+        <div class="case-col">
+          <h4>Approach</h4>
+          <p>Headless storefront rebuild, one-page checkout, saved payment methods, mobile-first cart flow.</p>
+        </div>
+        <div class="case-result">
+          <div class="num">&lt;40s</div>
+          <div class="lbl">Avg. checkout time</div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-meta">
+          <span class="cat">Real estate — new development</span>
+          <h3>The Aldergate Residences</h3>
+          <span class="client">120-unit pre-launch project</span>
+        </div>
+        <div class="case-col">
+          <h4>Challenge</h4>
+          <p>Needed to sell reserved units before construction finished, with zero existing web presence or brand.</p>
+        </div>
+        <div class="case-col">
+          <h4>Approach</h4>
+          <p>Pre-launch site with 3D floor plans, deposit-based reservation flow, and CRM-linked interest waitlist.</p>
+        </div>
+        <div class="case-result">
+          <div class="num">11wk</div>
+          <div class="lbl">Phase one sold out</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="hidden">
   <div class="wrap">
     <div class="stats-strip">
       <div class="stat reveal"><div class="num">120+</div><div class="lbl">Websites launched since 2019</div></div>
@@ -785,6 +912,10 @@
         <div class="field">
           <label for="company">Agency / company</label>
           <input type="text" id="company" name="company">
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+91 98765 43210">
         </div>
         <div class="field">
           <label for="type">Business type</label>
@@ -868,6 +999,7 @@
       name: form.name.value.trim(),
       email: form.email.value.trim(),
       company: form.company.value.trim(),
+      phone: form.phone.value.trim(),
       type: form.type.value,
       message: form.message.value.trim()
     };
